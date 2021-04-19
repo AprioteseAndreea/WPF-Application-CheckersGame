@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="CheckersGame.View.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CheckersGame.View"
+             mc:Ignorable="d" Width="814.298" Height="548.5">
+    <Canvas>
+
+        <Image Source="..\Resources\Backgrounds\AboutWallpaper.jpg" Height="549" Width="815" />
+    </Canvas>
+</UserControl>

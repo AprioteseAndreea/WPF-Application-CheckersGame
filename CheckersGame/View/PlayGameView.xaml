@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="CheckersGame.View.PlayGameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CheckersGame.View"
+             xmlns:vm="clr-namespace:CheckersGame.ViewModel" 
+             mc:Ignorable="d" Width="828.554" Height="557.053">
+    <UserControl.DataContext>
+        <vm:CheckersGameViewModel/>
+    </UserControl.DataContext>
+
+    <Canvas Margin="0,0,9.667,10.333">
+        <Image Source="..\Resources\Backgrounds\GameWallpaper.jpg" Width="819" Height="547"/>
+        <Label Content ="0" Name="WhitePieceOut" Canvas.Left="10" Canvas.Top="61" Height="47" Width="64" Background="Transparent" FontSize="33" Foreground="DarkRed" RenderTransformOrigin="0.508,0.194"></Label>
+        <Label Content ="0" Name="RedPieceOut" Canvas.Left="747" Canvas.Top="55" Height="47" Width="62" Background="Transparent" FontSize="33" Foreground="DarkRed" RenderTransformOrigin="0.508,0.194"></Label>
+
+        <Label Content ="1" Name="CurrentPlayerLabel" Canvas.Left="438" Canvas.Top="18" Height="47" Width="42" Background="Transparent" FontSize="33" Foreground="AntiqueWhite" RenderTransformOrigin="0.508,0.194"></Label>
+
+        <ItemsControl Name="grid" ItemsSource="{Binding Squares}" VerticalAlignment="Center" Height="418" Canvas.Left="211" Canvas.Top="107" Width="404" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+
+                                <Border Width="50" Height="50"  BorderBrush="DarkBlue">
+                                    <Button Command="{Binding ClickCommand}" Click="Button_Click">
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <Image Source="{Binding Image}"  />
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        <Button Name="SaveGameButton" BorderBrush="Transparent" Click="SaveGameButton_Click" Canvas.Left="658" Width="151" Height="47" Canvas.Top="478" Background="Transparent">
+            <Image Source="..\Resources\Buttons\SaveGameButton.jpg" Height="44" Width="151"></Image>
+        </Button>
+    </Canvas>
+</UserControl>
